@@ -4,39 +4,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainText = document.getElementById("maintext")
     const mailButton = document.getElementById("mail-button")
 
-    const processHost = () => {
+        let hostAsString = ""
         const host = document.domain
         const hostArray = host.split(".")
 
         if(hostArray.length >= 3){
             hostArray.shift()
-            const hostAsString = hostArray.join(".")
-            console.log("loop")
-            return hostAsString 
-
-            
-
+            hostAsString = hostArray.join(".") 
         } else {
-            hostArray.join(".")
+            hostAsString = hostArray.join(".")
         }
 
            
-    }
+    
 
-    // const host = processHost().hostAsString
-    // const emailTo = "info@" + host
+
+    const emailTo = "info@" + hostAsString
     const emailSub = "Request regarding"
-    //console.log(newHost)
+    //console.log(hostAsString)
 
-    processHost()
-    console.log("Processhost called")
     
     
     const sendMail = () => {
         window.location.href = "mailto:"+emailTo+'?subject='+emailSub
     }
 
-    // mainText.innerText = host + " is currently offline!"
+    mainText.innerText = hostAsString + " is currently offline!"
 
     mailButton.addEventListener("click", (event) => {
         event.preventDefault()
