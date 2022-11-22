@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             hostArray.shift()
             hostAsString = hostArray.join(".") 
         } else {
-            hostAsString = hostArray.join(".")
+            hostAsString = document.domain
         }
 
            
